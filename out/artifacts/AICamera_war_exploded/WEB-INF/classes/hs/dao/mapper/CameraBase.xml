@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hs.dao.CameraBase">
+    <!--<resultMap id="modleResult" type="hs.Bean.ControlModle">-->
+        <!--<id property="modleId" column="modleId"/>-->
+        <!--<result property="modleName" column="modleName"/>-->
+        <!--<result property="predicttime_P" column="predicttime_P"/>-->
+        <!--<result property="controlAPCOutCycle" column="controlAPCOutCycle"/>-->
+        <!--<result property="timeserise_N" column="timeserise_N"/>-->
+        <!--<result property="controltime_M" column="controltime_M"/>-->
+        <!--<result property="enable" column="enable"/>-->
+
+        <!--<collection property="modlePins" column="modleId" ofType="hs.Bean.ModlePin" select="findModlePins"/>-->
+        <!--<collection property="responTimeSerises" column="modleId" ofType="hs.Bean.ResponTimeSerise"-->
+                    <!--select="findModleRespon"/>-->
+
+        <!--&lt;!&ndash;<collection property="unhandleTag" ofType="hs.Bean.ModleTag">&ndash;&gt;-->
+        <!--&lt;!&ndash;<id property="modletagId" column="modletagId"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<result property="modleId" column="refrencemodleId"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<result property="iotype" column="iotype"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<result property="limitHigh" column="limitHigh"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<result property="limitLow" column="limitLow"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<result property="limitHighRes" column="limitHighRes"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<result property="limitLowRes" column="limitLowRes"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<result property="stepRespJson" column="stepRespJson"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<result property="Q" column="Q"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<result property="R" column="R"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<association property="tagclazz" javaType="hs.Bean.ModlePin column="{id=refrencetagId,modleId=refrencemodleId}" select="findModlePins"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<association property="pvTag" javaType="hs.Bean.ModlePin column="{id=PVTagrefrenceId,modleId=refrencemodleId}" select="findModlePins"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<association property="backValueTag" javaType="hs.Bean.ModlePin column="{id=backValue,modleId=refrencemodleId}" select="findModlePins"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<discriminator javaType="string" column="iotype">&ndash;&gt;-->
+        <!--&lt;!&ndash;<case value="mv" resultType="hs.Bean.MVModleTag"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<case value="ff" resultType="hs.Bean.FFModleTag"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<case value="sp" resultType="hs.Bean.SPModleTag"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<case value="pv" resultType="hs.Bean.PVModleTag"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;</discriminator>&ndash;&gt;-->
+        <!--&lt;!&ndash;</collection>&ndash;&gt;-->
+    <!--</resultMap>-->
+
+
+    <select id="findPlantInfo" resultType="hs.bean.PlantInfo">
+      select * from camerainfo
+    </select>
+
+    <!--<select id="getModle" resultMap="modleResult">-->
+        <!--select * from modle where modleId=#{modleid}-->
+    <!--</select>-->
+
+
+    <!--<select id="findTagById" resultType="hs.Bean.Tag">-->
+        <!--select * from tag where tagId=#{id}-->
+    <!--</select>-->
+
+    <!--<select id="findModlePin" parameterType="java.util.Map" resultType="hs.Bean.ModlePin">-->
+        <!--select * from modlepins where modlepinsId=#{id} and reference_modleId=#{modleId}-->
+    <!--</select>-->
+
+    <!--<select id="findModlePins" resultType="hs.Bean.ModlePin">-->
+        <!--select * from modlepins where reference_modleId=#{modleId}-->
+    <!--</select>-->
+
+    <!--<select id="findModleRespon" resultType="hs.Bean.ResponTimeSerise">-->
+        <!--select * from modlerespon where refrencemodleId=#{modleId}-->
+    <!--</select>-->
+
+    <!--<select id="getBaseConf" resultType="hs.Bean.BaseConf">-->
+        <!--select * from company-->
+    <!--</select>-->
+
+    <!--<insert id="insertModlePins" parameterType="hs.Bean.ControlModle" useGeneratedKeys="true">-->
+        <!--insert into modlepins(reference_modleId, modleOpcTag, filterMethod, modlePinName, opcTagName, resource, Q, R)-->
+        <!--values-->
+        <!--<foreach collection="controlModle.modlePins" item="pin" separator=",">-->
+            <!--(#{pin.reference_modleId}, #{pin.modleOpcTag}, #{pin.filterMethod}, #{pin.modlePinName}, #{pin.opcTagName},-->
+            <!--#{pin.resource}, #{pin.Q}, #{pin.R})-->
+        <!--</foreach>-->
+
+    <!--</insert>-->
+
+
+    <!--<insert id="insertModle" parameterType="hs.Bean.ControlModle" useGeneratedKeys="true" keyColumn="modleId"-->
+            <!--keyProperty="modleId">-->
+        <!--insert into modle(modleName, controlAPCOutCycle, predicttime_P, timeserise_N, controltime_M, enable) values-->
+        <!--(#{controlModle.modleName},#{controlModle.controlAPCOutCycle},#{controlModle.predicttime_P},#{controlModle.timeserise_N},#{controlModle.controltime_M},0)-->
+    <!--</insert>-->
+
+    <!--<update id="modifymodle">-->
+        <!--update modle set modleName=#{controlModle.modleName}, controlAPCOutCycle=#{controlModle.controlAPCOutCycle}, predicttime_P=#{controlModle.predicttime_P}, timeserise_N=#{controlModle.timeserise_N}, controltime_M=#{controlModle.controltime_M}-->
+        <!--where modleId=#{modleid}-->
+    <!--</update>-->
+
+    <!--<update id="modifymodleEnable">-->
+        <!--update modle set enable=#{enable}-->
+        <!--where modleId=#{modleid}-->
+    <!--</update>-->
+
+    <!--<delete id="deleteModlePins">-->
+        <!--delete from modlepins where reference_modleId=#{modleid}-->
+    <!--</delete>-->
+
+    <!--<insert id="insertModleResp" useGeneratedKeys="true" keyColumn="modletagId" keyProperty="modletagId">-->
+        <!--insert into modlerespon(refrencemodleId, stepRespJson, inputPins, outputPins) values-->
+        <!--<foreach collection="responTimeSerises" item="resp" separator=",">-->
+            <!--(#{resp.refrencemodleId}, #{resp.stepRespJson}, #{resp.inputPins}, #{resp.outputPins})-->
+        <!--</foreach>-->
+    <!--</insert>-->
+
+    <!--<delete id="deleteModleResp">-->
+        <!--delete from modlerespon where refrencemodleId=#{modleid}-->
+    <!--</delete>-->
+
+    <!--<delete id="deleteModle">-->
+        <!--delete from modle where modleId=#{modleid}-->
+    <!--</delete>-->
+
+
+
+
+</mapper>
