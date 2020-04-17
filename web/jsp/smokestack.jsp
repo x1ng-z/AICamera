@@ -24,7 +24,7 @@
         .layui-table img {
             max-width: 300px;
         }
-
+        .mainbody{width: 100%;height: 600px}
         /*.layui-admin-card-header{*/
         /*    padding: 150px;*/
         /*}*/
@@ -34,8 +34,8 @@
     </style>
 
 </head>
-<body>
-<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+<body class="mainbody">
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 5px;">
     <legend>历史查询</legend>
 </fieldset>
 
@@ -51,7 +51,6 @@
         <div class="layui-input-inline" style="padding-right:14px;">
             <select name="quiz2" id="selCity" lay-verify="required"></select>
         </div>
-
 
         <div class="layui-inline">
             <label class="layui-form-label">日期范围</label>
@@ -74,20 +73,18 @@
     </div>
 </form>
 
-
 <table class="layui-hide" id="test" width="900px" height="900px"></table>
-
 
 <script src="../js/layui/layui.js" charset="utf-8"></script>
 <script src="../js/jquery-3.0.0.js"></script>
 
 <script type="text/html" id="switchTpl1">
     <!-- 这里的 checked 的状态只是演示 -->
-    <input type="checkbox" name="man_except" value="{{d.man_except}}" lay-skin="switch" lay-text="异常|正常" lay-filter="sexDemo" {{ d.man_except == "异常" ? 'checked' : '' }}>
+    <input type="checkbox" name="man_except" value="{{d.man_except}}" lay-skin="switch" lay-text="异常|正常" lay-filter="sexDemo" {{ d.man_except === "异常" ? 'checked' : '' }}>
 </script>
 <script type="text/html" id="switchTpl2">
     <!-- 这里的 checked 的状态只是演示 -->
-    <input type="checkbox"  disabled name="auto_except" value="{{d.auto_except}}" lay-skin="switch" lay-text="异常|正常" lay-filter="sexDemo" {{ d.auto_except == "异常" ? 'checked' : '' }}>
+    <input type="checkbox"  disabled name="auto_except" value="{{d.auto_except}}" lay-skin="switch" lay-text="异常|正常" lay-filter="sexDemo" {{ d.auto_except === "异常" ? 'checked' : '' }}>
 </script>
 
 <script>
@@ -98,7 +95,7 @@
         form = layui.form;
 
         table.render({
-            "elem": '#test'
+            "elem": '#test', page: true
             //, "hight": "full-20"
             //, "width": 900
             // ,url:'/demo/table/user/'
