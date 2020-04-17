@@ -110,6 +110,8 @@ public class FileViewController {
         jsonObject1.put("cameraComment","建德1线");
         jsonObject1.put("saveTime",Instant.now().toString());
         jsonObject1.put("pictureUrl","../img/picture1586452275.670126.png");
+        jsonObject1.put("man_except","正常");
+        jsonObject1.put("auto_except","异常");
 
         jsonArray.add(jsonObject1);
 
@@ -118,6 +120,8 @@ public class FileViewController {
         jsonObject2.put("cameraComment","兰州");
         jsonObject2.put("saveTime",Instant.now().toString());
         jsonObject2.put("pictureUrl","../img/picture1586459464.97204.png");
+        jsonObject2.put("man_except","正常");
+        jsonObject2.put("auto_except","正常");
 
         jsonArray.add(jsonObject2);
         if(date!=null){
@@ -126,6 +130,8 @@ public class FileViewController {
             jsonObject3.put("cameraComment","茂鑫");
             jsonObject3.put("saveTime",Instant.now().toString());
             jsonObject3.put("pictureUrl","../img/picture1586459655.8842828.png");
+            jsonObject3.put("man_except","正常");
+            jsonObject3.put("auto_except","正常");
             jsonArray.add(jsonObject3);
         }
 
@@ -147,6 +153,8 @@ public class FileViewController {
         jsonObject1.put("cameraComment","建德1线");
         jsonObject1.put("saveTime",Instant.now().toString());
         jsonObject1.put("pictureUrl","../img/picture1586452275.670126.png");
+        jsonObject1.put("man_except","正常");
+        jsonObject1.put("auto_except","正常");
 
         jsonArray.add(jsonObject1);
 
@@ -155,6 +163,8 @@ public class FileViewController {
         jsonObject2.put("cameraComment","兰州");
         jsonObject2.put("saveTime",Instant.now().toString());
         jsonObject2.put("pictureUrl","../img/picture1586459464.97204.png");
+        jsonObject2.put("man_except","正常");
+        jsonObject2.put("auto_except","正常");
 
         jsonArray.add(jsonObject2);
         if(date!=null){
@@ -163,6 +173,8 @@ public class FileViewController {
             jsonObject3.put("cameraComment","茂鑫");
             jsonObject3.put("saveTime",Instant.now().toString());
             jsonObject3.put("pictureUrl","../img/picture1586459655.8842828.png");
+            jsonObject3.put("man_except","正常");
+            jsonObject3.put("auto_except","正常");
             jsonArray.add(jsonObject3);
         }
         return jsonArray.toString();
